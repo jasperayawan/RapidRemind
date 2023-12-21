@@ -11,8 +11,18 @@ export default function ProjectRoutes() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/"
+          element={
+            <ProtectedRoute
+                element={() => <Login />}
+            />
+        }
+        />
+        <Route path="/register" 
+            element={
+                  <ProtectedRoute element={() => <Register />}
+                />
+        } />
         <Route
             path="/home"
             element={

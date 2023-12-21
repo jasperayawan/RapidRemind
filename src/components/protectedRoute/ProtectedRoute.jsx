@@ -7,6 +7,8 @@ export default function ProtectedRoute({ element: Element }) {
 
     if(!authkey && ["/home", "/profile"].includes(pathname)){
         return <Navigate to='/' />;
+    } else if(authkey && ["/", "/register"].includes(pathname)) {
+        return <Navigate to='/home'/>;
     }
   return <Element />
 }
