@@ -6,6 +6,6 @@ import ProjectRoutes from './routes/Routes.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <ProjectRoutes />
+    <App />
   </React.StrictMode>,
 )
