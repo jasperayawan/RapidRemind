@@ -11,7 +11,8 @@ export default function ProjectRoutes() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Register />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route
             path="/home"
             element={
@@ -20,7 +21,6 @@ export default function ProjectRoutes() {
                 />
             }
         />
-        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );
