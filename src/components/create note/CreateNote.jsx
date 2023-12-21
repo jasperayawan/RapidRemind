@@ -9,6 +9,8 @@ import CodeTool from '@editorjs/code';
 import InlineCode from '@editorjs/inline-code';
 import Quote from '@editorjs/quote';
 import SimpleImage from "@editorjs/simple-image";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CreateNote() {
   const editorRef = useRef(null);
@@ -90,13 +92,22 @@ export default function CreateNote() {
 
   }, []);
 
-  return (
-    <div className='flex-[4.1] flex flex-col gap-y-3 p-5 bg-zinc-100'>
-      CreateNote
+  const handleSubmit = () => {
+    toast.error('not yet available!')
+  }
 
+  return (
+    <>
+      <ToastContainer />
+    <div className='flex-[4.1] flex flex-col gap-y-3 p-5 bg-zinc-100'>
+      <div className="flex justify-between items-center">
+      <span>CreateNote</span>
+      <button onClick={handleSubmit} className='bg-slate-800 px-5 py-2 rounded text-white'>Save</button>
+      </div>
       <div className="p-5 bg-white h-[741px] overflow-y-auto rounded shadow-lg" ref={editorRef}>
         {/** replace the editor.js here */}
       </div>
-    </div>
+    </div>  
+    </>
   )
 }
