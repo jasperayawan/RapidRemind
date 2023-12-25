@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -67,6 +67,7 @@ export default function Register() {
             {errors.password && (
               <span className="text-red-500">{errors.password.message}</span>
             )}
+            <Link to='/' className="text-slate-900 font-[400] hover:underline">Already have an account? login</Link>
             <button type="submit" className="px-4 rounded bg-slate-950 text-white py-2">
               Register
             </button>

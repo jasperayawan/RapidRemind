@@ -79,8 +79,6 @@ export default function CreateNote() {
       });
     }
 
-    // No need to clean up EditorJS instance explicitly
-
   }, []);
 
   const handleSubmit = () => {
@@ -93,10 +91,10 @@ export default function CreateNote() {
     <div className='flex-[4.1] flex flex-col gap-y-3 p-5 bg-zinc-100'>
       <div className="flex justify-between items-center">
       <span>CreateNote</span>
-      <button onClick={handleSubmit} className='bg-slate-800 px-5 py-2 rounded text-white'>Save</button>
+      <button onClick={handleSubmit} className='bg-slate-800 px-5 py-2 rounded text-white'>Create</button>
       </div>
       <div className="p-5 bg-white h-[741px] overflow-y-auto rounded shadow-lg" ref={editorRef}>
-        {/** replace the editor.js here */}
+        
       </div>
     </div>  
     </>

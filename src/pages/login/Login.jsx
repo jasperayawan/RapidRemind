@@ -57,7 +57,7 @@ export default function Login() {
             {errors.password && (
               <span className="text-red-500">{errors.password.message}</span>
             )}
-            <Link to='/register' className="font-[500] text-slate-700 text-end hover:underline">don't have an account? register</Link>
+            <Link to='/register' className="font-[400] text-slate-700 hover:underline">don't have an account? register</Link>
             <button type="submit" className="px-4 rounded bg-slate-950 text-white py-2">
               Sign in
             </button>
