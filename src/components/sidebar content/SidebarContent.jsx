@@ -20,7 +20,7 @@ export default function SidebarContent() {
             const response = await axios.post('/api/user/logout');
             if(response.status === 200){
                 localStorage.removeItem('authkey');
-                navigate('/');
+                window.location.reload();
             }
         }
         catch(error){

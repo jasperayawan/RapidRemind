@@ -6,6 +6,7 @@ import App from "../App";
 import Register from "../pages/register/Register";
 import ProtectedRoute from "../components/protectedRoute/ProtectedRoute";
 import Login from "../pages/login/Login";
+import VerifyEmail from "../components/verify-email/VerifyEmail";
 
 export default function ProjectRoutes() {
   return (
@@ -17,6 +18,9 @@ export default function ProjectRoutes() {
                 element={() => <Login />}
             />
         }
+        />
+        <Route path="/verifyemail"
+          element={<VerifyEmail />}
         />
         <Route path="/register" 
             element={

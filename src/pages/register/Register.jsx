@@ -16,7 +16,7 @@ export default function Register() {
       if (response.status === 200) {
         toast.success("User created successfully!");
         setInterval(() => {
-            Navigate("/");
+            Navigate("/verifyemail");
         }, 2000)
       }
     } catch (error) {
