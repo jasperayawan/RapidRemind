@@ -15,6 +15,7 @@ export default function Login() {
 
       if (response.status === 200) {
         localStorage.setItem("authkey", response.data.token)
+        localStorage.setItem("userId", response.data.userId)
 
         toast.success("User login successfully!");
         setInterval(() => {

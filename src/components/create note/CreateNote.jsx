@@ -11,13 +11,15 @@ import Quote from '@editorjs/quote';
 import SimpleImage from "@editorjs/simple-image";
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 export default function CreateNote() {
   const editorRef = useRef(null);
+  const userId = localStorage.getItem('userId');
 
   useEffect(() => {
     // Initialize EditorJS when the component mounts
-    if (editorRef.current) {
+    if (editorRef.current && editorRef.current instanceof Element) {
       const editor = new EditorJS({
         holder: editorRef.current,
         /**
@@ -73,17 +75,39 @@ export default function CreateNote() {
         /**
          * Use the 'rendered' hook instead of 'appendCallback'
          */
-        onReady: () => {
-          console.log('Editor is ready');
-        },
       });
-    }
 
+      // Save the editor instance in the ref
+    editorRef.current = editor;
+
+    }
   }, []);
 
-  const handleSubmit = () => {
-    toast.error('not yet available!')
-  }
+
+
+  const handleSubmit = async () => {
+    try {
+      // Ensure editorRef.current is defined
+      if (editorRef.current) {
+        const savedData = await editorRef.current.save();
+
+        const response = await axios.post('/api/note', {
+          userId: userId,
+          content: savedData,
+        });
+
+        if (response.status === 200) {
+          toast.success('Successfully content created!');
+        }
+      } else {
+        console.error('Editor instance is not initialized correctly.');
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Failed to create content');
+    }
+  };
+  
 
   return (
     <>
